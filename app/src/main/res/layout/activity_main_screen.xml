@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainScreen">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="259dp"
+        app:srcCompat="@drawable/post_instagram_keep_going_white" />
+
+    <TextView
+        android:id="@+id/dateViewTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/morningViewEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Please Input Morning Steps"
+        android:inputType="text"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/afternoonViewEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Please Input Afternoon Steps"
+        android:inputType="text"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/notesViewEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Please Input Activity"
+        android:inputType="text"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        app:iconSize="25dp" />
+
+    <Button
+        android:id="@+id/datePickBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pick A Date"
+        app:iconSize="25dp" />
+
+    <Button
+        android:id="@+id/viewDetailsBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Detailed View"
+        app:iconSize="25dp" />
+
+    <Button
+        android:id="@+id/clearBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        app:iconSize="25dp" />
+</LinearLayout>
