@@ -1,0 +1,135 @@
+START  
+
+  
+
+    // Initialize the user interface components 
+
+    Initialize dateViewTextView, morningViewEditText, afternoonViewEditText, notesViewEditText, submitBtn, viewDetailsBtn, datePickBtn, clearBtn 
+
+     
+
+    // Initialize arrays to hold data for the 7 days of the week 
+
+    Initialize morningStepsValues[7] to 0 
+
+    Initialize afternoonStepsValues[7] to 0 
+
+    Initialize activityNotesValues[7] to "" 
+
+    Initialize dateTextViewValues[7] to "" 
+
+     
+
+    // Set currentDay to 0 (starting from the first day) 
+
+    Set currentDay to 0 
+
+  
+
+    // Handle date selection (when user clicks "Pick Date") 
+
+    ON datePickBtn click: 
+
+        Show DatePicker Dialog 
+
+        User selects a date 
+
+        Store selected date in selectedDate 
+
+        Display selectedDate in dateViewTextView 
+
+  
+
+    // Handle Submit button click (when user enters data and submits) 
+
+    ON submitBtn click: 
+
+        TRY: 
+
+            Parse morningSteps from morningViewEditText 
+
+            Parse afternoonSteps from afternoonViewEditText 
+
+            Get activityNotes from notesViewEditText 
+
+  
+
+            IF morningSteps > 0 AND afternoonSteps > 0 AND activityNotes is not empty: 
+
+                // Store data for the current day 
+
+                Store morningSteps in morningStepsValues[currentDay] 
+
+                Store afternoonSteps in afternoonStepsValues[currentDay] 
+
+                Store activityNotes in activityNotesValues[currentDay] 
+
+                Store selectedDate in dateTextViewValues[currentDay] 
+
+                 
+
+                // Move to the next day (loop back after 7 days) 
+
+                currentDay = (currentDay + 1) % 7 
+
+                 
+
+                // Show success message 
+
+                Show Toast "Data Submitted" 
+
+            ELSE: 
+
+                // Show error message if data is invalid 
+
+                Show Toast "Please enter valid data" 
+
+        CATCH error: 
+
+            Show Toast "Error: Invalid input, please try again" 
+
+  
+
+    // Handle View Details button click (when user wants to see the week's data) 
+
+    ON viewDetailsBtn click: 
+
+        Create Intent to navigate to DetailedViewScreen 
+
+        Pass data arrays (morningStepsValues, afternoonStepsValues, activityNotesValues, dateTextViewValues) to DetailedViewScreen 
+
+        Start DetailedViewScreen activity 
+
+  
+
+    // Handle Clear button click (when user wants to reset data) 
+
+    ON clearBtn click: 
+
+        // Reset all arrays to their default values 
+
+        FOR i FROM 0 TO 6: 
+
+            morningStepsValues[i] = 0 
+
+            afternoonStepsValues[i] = 0 
+
+            activityNotesValues[i] = "" 
+
+            dateTextViewValues[i] = "" 
+
+  
+
+        // Clear the selected date 
+
+        selectedDate = "" 
+
+         
+
+        // Show reset message 
+
+        Show Toast "Data Cleared" 
+
+  
+
+STOP 
